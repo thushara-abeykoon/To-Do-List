@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
    <children>
       <Label layoutX="78.0" layoutY="32.0" text="Create an Account">
          <font>
@@ -30,37 +29,47 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="289.0" text="Confirm Password:">
+      <Label layoutX="50.0" layoutY="286.0" text="Confirm Password:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="45.0" layoutY="125.0" prefHeight="25.0" prefWidth="260.0" promptText="Username" style="-fx-background-radius: 20px;">
+      <TextField layoutX="45.0" layoutY="125.0" prefHeight="25.0" prefWidth="260.0" promptText="Username" style="-fx-background-radius: 10px;">
          <font>
             <Font size="13.0" />
          </font>
       </TextField>
-      <TextField layoutX="45.0" layoutY="187.0" prefHeight="25.0" prefWidth="260.0" promptText="E-mail" style="-fx-background-radius: 20px;">
+      <TextField layoutX="45.0" layoutY="187.0" prefHeight="25.0" prefWidth="260.0" promptText="E-mail" style="-fx-background-radius: 10px;">
          <font>
             <Font size="13.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="45.0" layoutY="250.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" style="-fx-background-radius: 20px;">
+      <PasswordField fx:id="txtPasswd" layoutX="45.0" layoutY="250.0" prefHeight="25.0" prefWidth="260.0" promptText="Password" style="-fx-background-radius: 10px;">
          <font>
             <Font size="13.0" />
          </font>
       </PasswordField>
-      <PasswordField layoutX="45.0" layoutY="314.0" prefHeight="25.0" prefWidth="260.0" promptText="Comfirm Password" style="-fx-background-radius: 20px;">
+      <PasswordField fx:id="txtPasswdConfirm" layoutX="45.0" layoutY="311.0" prefHeight="25.0" prefWidth="260.0" promptText="Comfirm Password" style="-fx-background-radius: 10px;">
          <font>
             <Font size="13.0" />
          </font>
       </PasswordField>
-      <Button defaultButton="true" layoutX="113.0" layoutY="360.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" text="Create">
+      <Button defaultButton="true" layoutX="113.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="125.0" text="Register">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="113.0" layoutY="461.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Login" />
+      <Button layoutX="113.0" layoutY="461.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="25.0" prefWidth="125.0" text="Login" />
       <Label layoutX="108.0" layoutY="432.0" text="Already have an account?" />
+      <Label fx:id="txtPasswordNotMatchStatus" layoutX="50.0" layoutY="342.0" text="Passwords does not matched" textFill="#d00000" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtPasswordMatchStatus" layoutX="50.0" layoutY="342.0" text="Password matched" textFill="#27c603" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
