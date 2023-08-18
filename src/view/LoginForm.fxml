@@ -22,10 +22,10 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="42.0" layoutY="107.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" />
-      <PasswordField layoutX="42.0" layoutY="165.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
+      <TextField fx:id="txtLoginUsername" layoutX="42.0" layoutY="107.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" />
+      <PasswordField fx:id="txtLoginPassword" layoutX="42.0" layoutY="165.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
       <Label layoutX="147.0" layoutY="412.0" text="New Here?" />
-      <Button layoutX="111.0" layoutY="209.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: dodgerblue;" text="Login" textFill="WHITE">
+      <Button layoutX="111.0" layoutY="209.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: dodgerblue;" text="Login" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToDoListFormController">
+<AnchorPane fx:id="root" prefHeight="537.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToDoListFormController">
    <children>
-      <Label layoutX="216.0" layoutY="23.0" text="To Do">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <ListView layoutX="14.0" layoutY="76.0" prefHeight="391.0" prefWidth="234.0" />
-      <Separator layoutX="252.0" layoutY="76.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="12.0" />
-      <TextField disable="true" layoutX="264.0" layoutY="76.0" prefHeight="25.0" prefWidth="227.0" />
-      <Button disable="true" layoutX="439.0" layoutY="106.0" mnemonicParsing="false" text="Delete" />
-      <Button disable="true" layoutX="378.0" layoutY="106.0" mnemonicParsing="false" text="Update" />
-      <Pane layoutX="264.0" layoutY="209.0" prefHeight="120.0" prefWidth="227.0" style="-fx-border-color: #ababab;">
+      <ListView layoutX="14.0" layoutY="23.0" prefHeight="475.0" prefWidth="234.0" />
+      <Separator layoutX="252.0" layoutY="109.0" orientation="VERTICAL" prefHeight="391.0" prefWidth="12.0" />
+      <TextField fx:id="txtAreaUpdateOrDelete" disable="true" layoutX="264.0" layoutY="89.0" prefHeight="25.0" prefWidth="227.0" />
+      <Button fx:id="btnDelete" disable="true" layoutX="391.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <Button fx:id="btnUpdate" disable="true" layoutX="264.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: limegreen;" text="Update" textFill="WHITE" />
+      <Pane layoutX="264.0" layoutY="260.0" prefHeight="120.0" prefWidth="227.0" style="-fx-border-color: #ababab;">
          <children>
-            <TextField layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="202.0" />
-            <Button layoutX="150.0" layoutY="66.0" mnemonicParsing="false" text="Add New" />
+            <TextField fx:id="txtAreaAddNew" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="202.0" />
+            <Button layoutX="13.0" layoutY="66.0" mnemonicParsing="false" onAction="#btnAddNewOnAction" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: dodgerblue;" text="Add New" textFill="WHITE" />
          </children>
       </Pane>
-      <Separator layoutX="261.0" layoutY="148.0" prefHeight="4.0" prefWidth="227.0" />
-      <Button layoutX="360.0" layoutY="432.0" mnemonicParsing="false" text="Log out" textFill="#3c0000" />
+      <Separator layoutX="261.0" layoutY="183.0" prefHeight="4.0" prefWidth="227.0" />
+      <Button layoutX="325.0" layoutY="465.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: red;" text="Log out" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="txtUsername" layoutX="252.0" layoutY="23.0" text="username">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtUserid" layoutX="252.0" layoutY="43.0" text="userId" />
    </children>
 </AnchorPane>

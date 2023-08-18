@@ -29,9 +29,9 @@ public class RegisterFormController {
         Scene scene = new Scene(parent);
 
         Stage stage = (Stage) root.getScene().getWindow();
-        stage.centerOnScreen();
         stage.setTitle("Login");
         stage.setScene(scene);
+        stage.centerOnScreen();
     }
 
     public void btnRegisterOnAction(ActionEvent event) {
@@ -69,7 +69,7 @@ public class RegisterFormController {
         Connection connection = DBConnection.getDbConnection().getConnection();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into user values (?,?,?,md5(?))");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into user values (?,?,?,?)");
             preparedStatement.setObject(1,userId);
             preparedStatement.setObject(2,username);
             preparedStatement.setObject(3,email);
