@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <children>
       <Label layoutX="147.0" layoutY="31.0" text="Login">
          <font>
@@ -24,18 +22,24 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="42.0" layoutY="107.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" style="-fx-background-radius: 10px;" />
-      <PasswordField layoutX="44.0" layoutY="165.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" style="-fx-background-radius: 10px;" />
-      <Button defaultButton="true" layoutX="82.0" layoutY="211.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="187.0" style="-fx-background-radius: 20px;" text="Log in">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <TextField layoutX="42.0" layoutY="107.0" prefHeight="25.0" prefWidth="268.0" promptText="Username" />
+      <PasswordField layoutX="42.0" layoutY="165.0" prefHeight="25.0" prefWidth="268.0" promptText="Password" />
       <Label layoutX="147.0" layoutY="412.0" text="New Here?" />
-      <Button layoutX="102.0" layoutY="442.0" mnemonicParsing="false" onAction="#btnCreateAccOnAction" prefHeight="25.0" prefWidth="154.0" style="-fx-background-radius: 20px;" text="Create an Account">
+      <Button layoutX="111.0" layoutY="209.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: dodgerblue;" text="Login" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="111.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnCreateAccOnAction" style="-fx-background-color: limegreen;" text="Create an Account" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>
