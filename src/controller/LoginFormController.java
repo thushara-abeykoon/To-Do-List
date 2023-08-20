@@ -51,18 +51,28 @@ public class LoginFormController {
                 if (password.equals(resultSet.getString(2))){
                     loginUserName = resultSet.getString(1);
                     loginUserId = resultSet.getString(3);
-                    loadStage("../view/ToDoListForm.fxml","Todo");
+
+
+                    loadStage("../view/ToDoListForm.fxml","ToDo");
                 }
                 else {
                     Alert alert = new Alert(Alert.AlertType.ERROR,"Wrong Password!");
+                    alert.showAndWait();
                     txtLoginUsername.clear();
                     txtLoginPassword.clear();
                     txtLoginUsername.requestFocus();
                 }
             }
 
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"SqlExeption");
+            alert.showAndWait();
+//            throw new RuntimeException(e);
+        }catch (IOException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"IOExeption");
+            System.out.println(e);
+            alert.showAndWait();
+//            throw new RuntimeException(e);
         }
     }
 

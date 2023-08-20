@@ -35,6 +35,9 @@ public class RegisterFormController {
     }
 
     public void btnRegisterOnAction(ActionEvent event) {
+
+        getFilled();
+
         if (!txtPasswd.getText().equals(txtPasswdConfirm.getText())){
             txtPasswordNotMatchStatus.setVisible(true);
             txtPasswordMatchStatus.setVisible(false);
@@ -66,35 +69,46 @@ public class RegisterFormController {
         String email = txtEmail.getText();
         String password = txtPasswdConfirm.getText();
 
-        Connection connection = DBConnection.getDbConnection().getConnection();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into user values (?,?,?,?)");
-            preparedStatement.setObject(1,userId);
-            preparedStatement.setObject(2,username);
-            preparedStatement.setObject(3,email);
-            preparedStatement.setObject(4,password);
+            Connection connection = DBConnection.getDbConnection().getConnection();
 
-            int i = preparedStatement.executeUpdate();
-            if (i>0){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Success....!");
-                alert.showAndWait();
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement("insert into user values (?,?,?,?)");
+                preparedStatement.setObject(1,userId);
+                preparedStatement.setObject(2,username);
+                preparedStatement.setObject(3,email);
+                preparedStatement.setObject(4,password);
 
-                Parent parent = FXMLLoader.load(this.getClass().getResource("../view/LoginForm.fxml"));
+                int i = preparedStatement.executeUpdate();
+                if (i>0){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Success....!");
+                    alert.showAndWait();
 
-                Scene scene = new Scene(parent);
-                Stage stage = (Stage) root.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Login");
-                stage.centerOnScreen();
+                    Parent parent = FXMLLoader.load(this.getClass().getResource("../view/LoginForm.fxml"));
+
+                    Scene scene = new Scene(parent);
+                    Stage stage = (Stage) root.getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setTitle("Login");
+                    stage.centerOnScreen();
+                }
+
+            } catch (SQLException | IOException e) {
+                throw new RuntimeException(e);
             }
-
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
+    private void getFilled(){
+        if (txtUsername.getText().isEmpty())
+            txtUsername.requestFocus();
+        else if (txtEmail.getText().isEmpty())
+            txtEmail.requestFocus();
+        else if (txtPasswd.getText().isEmpty()) {
+            txtPasswd.requestFocus();
+        } else if (txtPasswdConfirm.getText().isEmpty()) {
+            txtPasswdConfirm.requestFocus();
+        }else return;
+    }
     private String getUserId(){
 
         Connection connection = DBConnection.getDbConnection().getConnection();
